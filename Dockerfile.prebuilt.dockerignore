@@ -1,0 +1,15 @@
+# Scoped ignore for the prebuilt image — keep .next/standalone & .next/static,
+# drop everything else heavy. (BuildKit prefers <dockerfile>.dockerignore.)
+node_modules
+.git
+.gitignore
+.claude
+.next/cache
+.env*.local
+.DS_Store
+.vercel
+README.md
+Dockerfile
+Dockerfile.prebuilt
+docker-compose.yml
+*.tsbuildinfo

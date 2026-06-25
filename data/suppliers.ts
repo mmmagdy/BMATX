@@ -1,0 +1,66 @@
+import type { Supplier } from "./types";
+
+export const suppliers: Supplier[] = [
+  {
+    id: "alrajhi",
+    name: { ar: "مؤسسة الراجحي للمواد", en: "Al-Rajhi Materials Co." },
+    location: { ar: "الرياض", en: "Riyadh" },
+    rating: 4.8,
+    reviews: 1240,
+    productCount: 86,
+    tint: "oklch(0.62 0.13 250)",
+    verified: true,
+  },
+  {
+    id: "binladen",
+    name: { ar: "شركة البناء الحديث", en: "Modern Build Trading" },
+    location: { ar: "جدة", en: "Jeddah" },
+    rating: 4.6,
+    reviews: 870,
+    productCount: 64,
+    tint: "oklch(0.6 0.14 150)",
+    verified: true,
+  },
+  {
+    id: "saudisteel",
+    name: { ar: "الحديد السعودي", en: "Saudi Steel Supply" },
+    location: { ar: "الدمام", en: "Dammam" },
+    rating: 4.7,
+    reviews: 1530,
+    productCount: 41,
+    tint: "oklch(0.55 0.12 30)",
+    verified: true,
+  },
+  {
+    id: "ceramicworld",
+    name: { ar: "عالم السيراميك", en: "Ceramic World" },
+    location: { ar: "الرياض", en: "Riyadh" },
+    rating: 4.5,
+    reviews: 642,
+    productCount: 130,
+    tint: "oklch(0.6 0.13 320)",
+    verified: false,
+  },
+  {
+    id: "gulfpaint",
+    name: { ar: "دهانات الخليج", en: "Gulf Paints" },
+    location: { ar: "الخبر", en: "Khobar" },
+    rating: 4.4,
+    reviews: 388,
+    productCount: 72,
+    tint: "oklch(0.6 0.12 200)",
+    verified: true,
+  },
+  {
+    id: "noorelec",
+    name: { ar: "نور للكهرباء", en: "Noor Electric" },
+    location: { ar: "مكة المكرمة", en: "Makkah" },
+    rating: 4.6,
+    reviews: 510,
+    productCount: 118,
+    tint: "oklch(0.65 0.14 90)",
+    verified: false,
+  },
+];
+
+export const supplierById = (id: string) => suppliers.find((s) => s.id === id);

@@ -1,0 +1,28 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Offline runtime image — packages a LOCALLY-built standalone artifact.
+# Does zero network work at build time (no apk / npm / font fetch), so it works
+# behind TLS-intercepting proxies and air-gapped networks.
+#
+# Prereq: run `npm run build` on the host first (next.config has output:"standalone").
+# Build:  docker build -f Dockerfile.prebuilt -t bmatx-portal .
+# ─────────────────────────────────────────────────────────────────────────────
+
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
+
+RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
+
+# prebuilt standalone server + static assets + public dir
+COPY public ./public
+COPY --chown=nextjs:nodejs .next/standalone ./
+COPY --chown=nextjs:nodejs .next/static ./.next/static
+
+USER nextjs
+EXPOSE 3000
+
+CMD ["node", "server.js"]
