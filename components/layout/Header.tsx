@@ -17,6 +17,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
+    <>
     <header className="sticky top-0 z-30 border-b border-border bg-bg/85 backdrop-blur-md">
       {/* ---- main row ---- */}
       <div className="page flex items-center gap-3 py-3">
@@ -74,7 +75,8 @@ export function Header() {
         <CategoryNav />
       </div>
 
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </header>
+    <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
   );
 }

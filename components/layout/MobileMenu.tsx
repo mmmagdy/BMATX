@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Icon, type IconName } from "@/lib/icons";
 import { categories } from "@/data/categories";
@@ -17,6 +18,15 @@ const accountLinks: { href: string; label: string; icon: IconName }[] = [
 export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { t, tl, dir } = useI18n();
   const offset = dir === "rtl" ? 320 : -320;
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
 
   return (
     <AnimatePresence>

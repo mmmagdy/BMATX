@@ -1,0 +1,6 @@
+# Local-only override: host 3000 is taken by repos-frontend-1, so publish dev on 3300.
+# Usage: docker compose -f docker-compose.dev.yml -f docker-compose.dev.override.yml up
+services:
+  web:
+    ports: !override
+      - "3300:3000"
