@@ -23,7 +23,7 @@ import { cn } from "@/lib/cn";
 import type { Address, Shipment } from "@/data/types";
 
 type Step = 0 | 1 | 2 | 3;
-type PayMethod = "cod" | "card";
+type PayMethod = "card";
 
 export function CheckoutView() {
   const { t, tl } = useI18n();
@@ -35,7 +35,7 @@ export function CheckoutView() {
     (savedAddresses.find((a) => a.isDefault) ?? savedAddresses[0])?.id ?? "",
   );
   const [walletUsed, setWalletUsed] = useState(0);
-  const [payMethod, setPayMethod] = useState<PayMethod>("cod");
+  const [payMethod, setPayMethod] = useState<PayMethod>("card");
   const [placed, setPlaced] = useState<null | { number: string; remaining: number; walletUsed: number }>(null);
 
   const address = savedAddresses.find((a) => a.id === addrId);
@@ -432,7 +432,6 @@ function ConfirmStep({
   const { lines } = useCart();
 
   const methods: { id: PayMethod; label: string; icon: IconName }[] = [
-    { id: "cod", label: t("pay.cod"), icon: "truck" },
     { id: "card", label: t("pay.card"), icon: "shield" },
   ];
 

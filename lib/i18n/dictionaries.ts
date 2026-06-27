@@ -320,7 +320,6 @@ const ar = {
   "sum.remainingPay": "المتبقي للدفع",
 
   "pay.method": "وسيلة الدفع",
-  "pay.cod": "الدفع عند الاستلام",
   "pay.card": "بطاقة بنكية",
   "pay.walletOnly": "مدفوع بالكامل من المحفظة",
 
@@ -669,7 +668,6 @@ const en: Record<keyof typeof ar, string> = {
   "sum.remainingPay": "Remaining to pay",
 
   "pay.method": "Payment method",
-  "pay.cod": "Cash on delivery",
   "pay.card": "Card",
   "pay.walletOnly": "Paid fully by wallet",
 
